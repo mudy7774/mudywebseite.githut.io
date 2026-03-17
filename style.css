@@ -29,10 +29,29 @@ html:focus-within {
 }
 
 body {
+    position: relative;
     background: radial-gradient(circle at top right, rgba(34, 211, 238, 0.2), transparent 28%),
         radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.16), transparent 30%),
         var(--bg-color);
     color: var(--text-color);
+}
+
+.bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.72;
+}
+
+.skip-link,
+.header,
+main,
+.footer {
+    position: relative;
+    z-index: 1;
 }
 
 a,
@@ -116,6 +135,39 @@ span {
 .navbar a:hover,
 .navbar a.active {
     color: var(--main-color);
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 2rem;
+    padding: 0.25rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.45);
+}
+
+.lang-btn {
+    min-width: 4.4rem;
+    min-height: 3.2rem;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted-text);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.lang-btn:hover {
+    color: var(--text-color);
+}
+
+.lang-btn.is-active {
+    background: linear-gradient(135deg, var(--main-color), var(--main-color-2));
+    color: #082f49;
 }
 
 #meno {
@@ -258,13 +310,17 @@ span {
     grid-template-columns: 0.95fr 1.05fr;
     align-items: center;
     gap: 6rem;
-    background: linear-gradient(180deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.95));
+    background: transparent;
 }
 
 .heading {
     text-align: left;
     font-size: 4.4rem;
     margin-bottom: 1.2rem;
+}
+
+.heading-main {
+    color: var(--text-color);
 }
 
 .about-content h2 {
@@ -582,6 +638,10 @@ p {
         align-items: center;
     }
 
+    .lang-switch {
+        margin-left: 0;
+    }
+
     .home-content h1 {
         font-size: 4.8rem;
     }
@@ -613,6 +673,10 @@ p {
 
     .img img {
         animation: none;
+    }
+
+    .bg-canvas {
+        opacity: 0.42;
     }
 }
 
