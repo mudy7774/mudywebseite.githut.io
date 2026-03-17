@@ -13,29 +13,34 @@
     
 </head>
 <body>
-    <a class="skip-link" href="#home">Direkt zum Inhalt</a>
+    <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <a class="skip-link" href="#home" data-i18n="skip.link">Direkt zum Inhalt</a>
    <header class="header">
     <h4 id="id">Mohamad<span> Issa</span></h4>
-     <i class='bx bx-menu' id="meno" role="button" aria-label="Menü öffnen" tabindex="0"></i>
+     <i class='bx bx-menu' id="meno" role="button" aria-label="Menue oeffnen" data-i18n-aria-label="menu.open" tabindex="0"></i>
      <nav class="navbar" aria-label="Hauptnavigation">
         
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#foto">Foto</a> 
-        <a href="#contact">Contact</a>
+        <a href="#home" class="active" data-i18n="nav.home">Home</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#foto" data-i18n="nav.photos">Foto</a> 
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <div class="lang-switch" role="group" aria-label="Sprachauswahl" data-i18n-aria-label="language.group">
+            <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
         
     </nav>
     </header>
     <main>
     <section class="home" id="home">
-   <div class="home-content"><h3>Hallo, Das bin ich</h3>
+     <div class="home-content"><h3 data-i18n="home.greeting">Hallo, Das bin ich</h3>
    <h1>Mohamad Issa</h1>
-   <h3>und ich studiere <span class="muuu"></span></h3>
-   <p>Ich komme ursprünglich aus Syrien und lebe seit neun Jahren in Deutschland.Mein Studium ist für mich von großer Bedeutung.
+     <h3><span data-i18n="home.studyPrefix">und ich studiere</span> <span class="muuu"></span></h3>
+     <p data-i18n="home.bio">Ich komme ursprünglich aus Syrien und lebe seit neun Jahren in Deutschland.Mein Studium ist für mich von großer Bedeutung.
     Der Studiengang, den ich gewählt habe, passt perfekt zu meinen Interessen und meiner beruflichen Ausrichtung</p>
     <div class="cta-row">
-     <a class="btn" href="#contact">Kontakt</a>
-     <a class="btn btn-ghost" href="#foto">Fotos ansehen</a>
+         <a class="btn" href="#contact" data-i18n="home.ctaContact">Kontakt</a>
+         <a class="btn btn-ghost" href="#foto" data-i18n="home.ctaPhotos">Fotos ansehen</a>
     </div>
    
    
@@ -57,9 +62,9 @@
     </div>
 
     <div class="about-content">
-        <h2 class="heading">About<span>Me</span></h2>
+        <h2 class="heading"><span class="heading-main" data-i18n="about.heading1">About</span><span data-i18n="about.heading2">Me</span></h2>
         <h3>Mohamad Issa</h3>
-        <p>Ich bin ein leidenschaftlicher Reisender, der gerne neue Kulturen entdeckt und
+        <p data-i18n="about.bio">Ich bin ein leidenschaftlicher Reisender, der gerne neue Kulturen entdeckt und
         sich von der Vielfalt der Welt
              inspirieren lässt.In meiner Freizeit tauche ich gerne in spannende Bücher ein,
                die mir neue Perspektiven eröffnen und 
@@ -69,24 +74,24 @@
     </div>
    </section>
    <section class="portf" id="foto">
-    <h2 class="heading"> Meine <span>Fotos</span></h2>
+    <h2 class="heading"><span class="heading-main" data-i18n="photos.heading1">Meine</span> <span data-i18n="photos.heading2">Fotos</span></h2>
     <div class="foto-viewer" aria-live="polite">
-        <button class="foto-nav foto-prev" id="foto-prev" type="button" aria-label="Vorheriges Foto">&lt;</button>
-        <button class="foto-nav foto-next" id="foto-next" type="button" aria-label="Nächstes Foto">&gt;</button>
+        <button class="foto-nav foto-prev" id="foto-prev" type="button" aria-label="Vorheriges Foto" data-i18n-aria-label="photos.prev">&lt;</button>
+        <button class="foto-nav foto-next" id="foto-next" type="button" aria-label="Naechstes Foto" data-i18n-aria-label="photos.next">&gt;</button>
         <img id="foto-main-image" src="foto1.jpg" alt="Erhalt der deutschen Staatsangehörigkeit" loading="lazy">
-        <p id="foto-main-caption">Die deutsche Staatsangehörigkeit erhalten</p>
-        <div class="foto-dots" id="foto-dots" aria-label="Bildauswahl"></div>
+        <p id="foto-main-caption">Die deutsche Staatsangehoerigkeit erhalten</p>
+        <div class="foto-dots" id="foto-dots" aria-label="Bildauswahl" data-i18n-aria-label="photos.dots"></div>
     </div>
    </section>
    <section class="contact" id="contact">
-    <h2 class="heading">Kontakt <span>aufnehmen</span></h2>
-    <p>Du kannst mir jederzeit schreiben.</p>
+    <h2 class="heading"><span class="heading-main" data-i18n="contact.heading1">Kontakt</span> <span data-i18n="contact.heading2">aufnehmen</span></h2>
+    <p data-i18n="contact.text">Du kannst mir jederzeit schreiben.</p>
     <p>Email: <a href="mailto:mohamad95issa@gmail.com">mohamad95issa@gmail.com</a></p>
    </section>
    </main>
 <footer class="footer">
     <div class="footer-text">
-        <p>Danke für Ihr Besuch</p>
+        <p data-i18n="footer.thanks">Danke fuer Ihren Besuch</p>
     </div>
     <div class="footer-ic">
         <a href="#home" aria-label="Nach oben"><i class='bx bx-up-arrow-alt'></i></a>
