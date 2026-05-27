@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Persoenliche Website von Mohamad Issa mit Fokus auf Medieninformatik, Web-Entwicklung und UI/UX Design.">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="Mohamad Issa | Medieninformatik & UI/UX">
+    <meta property="og:description" content="Persoenliche Website mit Informationen, Projekteinblicken und Kontaktmoeglichkeit.">
+    <meta property="og:site_name" content="Mohamad Issa">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mudy7774.github.io/mudywebseite.githut.io/">
+    <meta property="og:image" content="https://mudy7774.github.io/mudywebseite.githut.io/my1.webp">
+    <meta property="og:image:width" content="540">
+    <meta property="og:image:height" content="540">
+    <meta property="og:image:alt" content="Portraet von Mohamad Issa">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mohamad Issa | Medieninformatik & UI/UX">
+    <meta name="twitter:description" content="Persoenliche Website mit Informationen, Projekteinblicken und Kontaktmoeglichkeit.">
+    <meta name="twitter:image" content="https://mudy7774.github.io/mudywebseite.githut.io/my1.webp">
+    <link rel="canonical" href="https://mudy7774.github.io/mudywebseite.githut.io/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
     <title>Meine Webseite</title>
     
 </head>
@@ -17,12 +33,14 @@
     <a class="skip-link" href="#home" data-i18n="skip.link">Direkt zum Inhalt</a>
    <header class="header">
     <h4 id="id">Mohamad<span> Issa</span></h4>
-     <i class='bx bx-menu' id="meno" role="button" aria-label="Menue oeffnen" data-i18n-aria-label="menu.open" tabindex="0"></i>
-     <nav class="navbar" aria-label="Hauptnavigation">
+      <button type="button" id="meno" class="menu-btn" aria-label="Menue oeffnen" data-i18n-aria-label="menu.open" aria-controls="site-nav" aria-expanded="false">
+          <i class='bx bx-menu' aria-hidden="true"></i>
+      </button>
+      <nav class="navbar" id="site-nav" aria-label="Hauptnavigation">
         
         <a href="#home" class="active" data-i18n="nav.home">Home</a>
         <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#foto" data-i18n="nav.photos">Foto</a> 
+        <a href="#foto" data-i18n="nav.photos">Fotos</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
         <div class="lang-switch" role="group" aria-label="Sprachauswahl" data-i18n-aria-label="language.group">
             <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
@@ -36,8 +54,7 @@
      <div class="home-content"><h3 data-i18n="home.greeting">Hallo, Das bin ich</h3>
    <h1>Mohamad Issa</h1>
      <h3><span data-i18n="home.studyPrefix">und ich studiere</span> <span class="muuu"></span></h3>
-     <p data-i18n="home.bio">Ich komme ursprünglich aus Syrien und lebe seit neun Jahren in Deutschland.Mein Studium ist für mich von großer Bedeutung.
-    Der Studiengang, den ich gewählt habe, passt perfekt zu meinen Interessen und meiner beruflichen Ausrichtung</p>
+     <p data-i18n="home.bio">Ich komme ursprünglich aus Syrien und lebe seit neun Jahren in Deutschland. Mein Studium ist für mich von großer Bedeutung. Der Studiengang, den ich gewählt habe, passt perfekt zu meinen Interessen und meiner beruflichen Ausrichtung.</p>
     <div class="cta-row">
          <a class="btn" href="#contact" data-i18n="home.ctaContact">Kontakt</a>
          <a class="btn btn-ghost" href="#foto" data-i18n="home.ctaPhotos">Fotos ansehen</a>
@@ -52,17 +69,17 @@
    </div>
    </div>
    <div class="img">
-     <img src="my1.jpeg" alt="Porträt von Mohamad Issa">
+         <img src="my1.webp" alt="Portraet von Mohamad Issa" width="540" height="540" decoding="async" fetchpriority="high">
     
    </div>
    </section>
    <section class="about" id="about">
     <div class="about-img">
-        <img src="my2.jpeg" alt="Mohamad Issa in Freizeit">
+        <img src="my2.webp" alt="Mohamad Issa in Freizeit" width="540" height="540" loading="lazy" decoding="async">
     </div>
 
     <div class="about-content">
-        <h2 class="heading"><span class="heading-main" data-i18n="about.heading1">About</span><span data-i18n="about.heading2">Me</span></h2>
+        <h2 class="heading"><span class="heading-main" data-i18n="about.heading1">Über</span> <span data-i18n="about.heading2">Mich</span></h2>
         <h3>Mohamad Issa</h3>
         <p data-i18n="about.bio">Ich bin ein leidenschaftlicher Reisender, der gerne neue Kulturen entdeckt und
         sich von der Vielfalt der Welt
@@ -74,18 +91,35 @@
     </div>
    </section>
    <section class="portf" id="foto">
-    <h2 class="heading"><span class="heading-main" data-i18n="photos.heading1">Meine</span> <span data-i18n="photos.heading2">Fotos</span></h2>
-    <div class="foto-viewer" aria-live="polite">
-        <button class="foto-nav foto-prev" id="foto-prev" type="button" aria-label="Vorheriges Foto" data-i18n-aria-label="photos.prev">&lt;</button>
-        <button class="foto-nav foto-next" id="foto-next" type="button" aria-label="Naechstes Foto" data-i18n-aria-label="photos.next">&gt;</button>
-        <img id="foto-main-image" src="foto1.jpg" alt="Erhalt der deutschen Staatsangehörigkeit" loading="lazy">
-        <p id="foto-main-caption">Die deutsche Staatsangehoerigkeit erhalten</p>
-        <div class="foto-dots" id="foto-dots" aria-label="Bildauswahl" data-i18n-aria-label="photos.dots"></div>
+    <div class="single-photo-card">
+        <div class="single-photo-image-wrap">
+            <img src="mudy1.webp" alt="Portrait von Mohamad Issa" width="1200" height="900" loading="lazy" decoding="async">
+        </div>
+        <div class="single-photo-content">
+            <h3>Medieninformatik trifft<br>UX/UI Design.</h3>
+            <p>Student der Medieninformatik mit einem starken Fokus auf User Experience und Interface Design. Aktuell absolviere ich ein Praktikum bei Landsiedel NLP Training - ein Umfeld, das mir zeigt, wie Sprache, Psychologie und digitale Produkte zusammenhaengen. Ich moechte Erlebnisse schaffen, die nicht nur funktionieren, sondern sich gut anfuehlen.</p>
+        </div>
     </div>
    </section>
    <section class="contact" id="contact">
     <h2 class="heading"><span class="heading-main" data-i18n="contact.heading1">Kontakt</span> <span data-i18n="contact.heading2">aufnehmen</span></h2>
     <p data-i18n="contact.text">Du kannst mir jederzeit schreiben.</p>
+    <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-group">
+            <label for="form-name" data-i18n="contact.form.nameLabel">Name</label>
+            <input type="text" id="form-name" name="name" required autocomplete="name" data-i18n-placeholder="contact.form.name" placeholder="Dein Name">
+        </div>
+        <div class="form-group">
+            <label for="form-email" data-i18n="contact.form.emailLabel">E-Mail</label>
+            <input type="email" id="form-email" name="email" required autocomplete="email" data-i18n-placeholder="contact.form.email" placeholder="Deine E-Mail">
+        </div>
+        <div class="form-group">
+            <label for="form-message" data-i18n="contact.form.messageLabel">Nachricht</label>
+            <textarea id="form-message" name="message" rows="5" required data-i18n-placeholder="contact.form.message" placeholder="Deine Nachricht"></textarea>
+        </div>
+        <button type="submit" class="btn" data-i18n="contact.form.send">Senden</button>
+        <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
+    </form>
     <p>Email: <a href="mailto:mohamad95issa@gmail.com">mohamad95issa@gmail.com</a></p>
    </section>
    </main>
@@ -98,10 +132,11 @@
     </div>
 </footer>
 
-<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://unpkg.com/scrollreveal" defer></script>
 
-   <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
