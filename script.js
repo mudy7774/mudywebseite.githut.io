@@ -1,27 +1,21 @@
 const header = document.querySelector('.header');
-const menuIcon = document.querySelector('#meno');
+const menuButton = document.querySelector('#meno');
+const menuIcon = menuButton ? menuButton.querySelector('i') : null;
 const navbar = document.querySelector('.navbar');
 const navLinks = document.querySelectorAll('.navbar a');
 const sections = document.querySelectorAll('section[id]');
-const photoViewer = document.querySelector('.foto-viewer');
-const mainPhoto = document.querySelector('#foto-main-image');
-const mainCaption = document.querySelector('#foto-main-caption');
-const photoDotsContainer = document.querySelector('#foto-dots');
-const prevPhotoButton = document.querySelector('#foto-prev');
-const nextPhotoButton = document.querySelector('#foto-next');
 const languageButtons = document.querySelectorAll('.lang-btn');
+
 const translations = {
     de: {
         title: 'Meine Webseite',
-        typed: ['Medieninformatik'],
-        dotLabel: 'Bild',
-        dotAction: 'anzeigen',
+        typed: ['Medieninformatik', 'Web-Entwicklung', 'UI/UX Design'],
         text: {
             'skip.link': 'Direkt zum Inhalt',
             'menu.open': 'Menue oeffnen',
             'nav.home': 'Home',
             'nav.about': 'About',
-            'nav.photos': 'Foto',
+            'nav.photos': 'Fotos',
             'nav.contact': 'Contact',
             'language.group': 'Sprachauswahl',
             'home.greeting': 'Hallo, Das bin ich',
@@ -29,25 +23,28 @@ const translations = {
             'home.bio': 'Ich komme urspruenglich aus Syrien und lebe seit neun Jahren in Deutschland. Mein Studium ist fuer mich von grosser Bedeutung. Der Studiengang, den ich gewaehlt habe, passt perfekt zu meinen Interessen und meiner beruflichen Ausrichtung.',
             'home.ctaContact': 'Kontakt',
             'home.ctaPhotos': 'Fotos ansehen',
-            'about.heading1': 'About',
-            'about.heading2': 'Me',
+            'about.heading1': 'Ueber',
+            'about.heading2': 'Mich',
             'about.bio': 'Ich bin ein leidenschaftlicher Reisender, der gerne neue Kulturen entdeckt und sich von der Vielfalt der Welt inspirieren laesst. In meiner Freizeit tauche ich gerne in spannende Buecher ein, die mir neue Perspektiven eroeffnen und meinen Horizont erweitern. Fitness ist mir wichtig, und ich verbringe regelmaessig Zeit im Fitnessstudio, um Koerper und Geist in Balance zu halten. Zusaetzlich spiele ich gerne Schach, da es mir hilft, strategisches Denken zu foerdern und meine Konzentration zu verbessern.',
-            'photos.heading1': 'Meine',
-            'photos.heading2': 'Fotos',
-            'photos.prev': 'Vorheriges Foto',
-            'photos.next': 'Naechstes Foto',
-            'photos.dots': 'Bildauswahl',
             'contact.heading1': 'Kontakt',
             'contact.heading2': 'aufnehmen',
             'contact.text': 'Du kannst mir jederzeit schreiben.',
+            'contact.form.nameLabel': 'Name',
+            'contact.form.emailLabel': 'E-Mail',
+            'contact.form.messageLabel': 'Nachricht',
+            'contact.form.name': 'Dein Name',
+            'contact.form.email': 'Deine E-Mail',
+            'contact.form.message': 'Deine Nachricht',
+            'contact.form.send': 'Senden',
+            'contact.form.success': 'Danke! Deine Nachricht wurde gesendet.',
+            'contact.form.error': 'Bitte alle Felder korrekt ausfuellen.',
+            'contact.form.networkError': 'Senden fehlgeschlagen. Bitte spaeter erneut versuchen.',
             'footer.thanks': 'Danke fuer Ihren Besuch'
         }
     },
     en: {
         title: 'My Website',
-        typed: ['Media Computer Science'],
-        dotLabel: 'Image',
-        dotAction: 'show',
+        typed: ['Media Computer Science', 'Web Development', 'UI/UX Design'],
         text: {
             'skip.link': 'Skip to content',
             'menu.open': 'Open menu',
@@ -64,92 +61,26 @@ const translations = {
             'about.heading1': 'About',
             'about.heading2': 'Me',
             'about.bio': 'I am a passionate traveler who enjoys discovering new cultures and drawing inspiration from the diversity of the world. In my free time, I like reading exciting books that open new perspectives and broaden my horizon. Fitness is important to me, and I regularly spend time at the gym to keep body and mind in balance. I also enjoy playing chess because it helps me improve strategic thinking and concentration.',
-            'photos.heading1': 'My',
-            'photos.heading2': 'Photos',
-            'photos.prev': 'Previous photo',
-            'photos.next': 'Next photo',
-            'photos.dots': 'Image selection',
             'contact.heading1': 'Get',
             'contact.heading2': 'in touch',
             'contact.text': 'You can message me anytime.',
+            'contact.form.nameLabel': 'Name',
+            'contact.form.emailLabel': 'Email',
+            'contact.form.messageLabel': 'Message',
+            'contact.form.name': 'Your name',
+            'contact.form.email': 'Your email',
+            'contact.form.message': 'Your message',
+            'contact.form.send': 'Send',
+            'contact.form.success': 'Thanks! Your message has been sent.',
+            'contact.form.error': 'Please fill in all fields correctly.',
+            'contact.form.networkError': 'Sending failed. Please try again later.',
             'footer.thanks': 'Thanks for visiting'
         }
     }
 };
-const photoItemsByLanguage = {
-    de: [
-        {
-            src: 'foto1.jpg',
-            alt: 'Erhalt der deutschen Staatsangehoerigkeit',
-            caption: 'Die deutsche Staatsangehoerigkeit erhalten'
-        },
-        {
-            src: 'foto2.jpg',
-            alt: 'Besuch im Lieblingsrestaurant',
-            caption: 'Mein Lieblingsrestaurant'
-        },
-        {
-            src: 'foto7.jpg',
-            alt: 'Foto mit Freunden',
-            caption: 'Freunde'
-        },
-        {
-            src: 'foto4.jpg',
-            alt: 'Mein Lieblingsauto',
-            caption: 'Mein Lieblingsauto'
-        },
-        {
-            src: 'foto5.jpg',
-            alt: 'Im Fitnessstudio',
-            caption: 'Springer Fitnessstudio'
-        },
-        {
-            src: 'foto6.jpg',
-            alt: 'Portraetfoto von mir',
-            caption: 'Das bin ich'
-        }
-    ],
-    en: [
-        {
-            src: 'foto1.jpg',
-            alt: 'Receiving German citizenship',
-            caption: 'Receiving German citizenship'
-        },
-        {
-            src: 'foto2.jpg',
-            alt: 'Visit to my favorite restaurant',
-            caption: 'My favorite restaurant'
-        },
-        {
-            src: 'foto7.jpg',
-            alt: 'Photo with friends',
-            caption: 'Friends'
-        },
-        {
-            src: 'foto4.jpg',
-            alt: 'My favorite car',
-            caption: 'My favorite car'
-        },
-        {
-            src: 'foto5.jpg',
-            alt: 'At the gym',
-            caption: 'Springer Gym'
-        },
-        {
-            src: 'foto6.jpg',
-            alt: 'Portrait photo of me',
-            caption: 'This is me'
-        }
-    ]
-};
 
-let currentPhotoIndex = 0;
-let autoSlideTimer = null;
-let touchStartX = null;
-let photoDots = [];
 let currentLanguage = 'de';
 let typedInstance = null;
-let photoItems = photoItemsByLanguage.de;
 
 function initTechBackground() {
     const canvas = document.querySelector('#bg-canvas');
@@ -307,7 +238,6 @@ function initTypedEffect(language) {
 function setLanguage(language) {
     const nextLanguage = translations[language] ? language : 'de';
     currentLanguage = nextLanguage;
-    photoItems = photoItemsByLanguage[nextLanguage];
 
     document.documentElement.lang = nextLanguage;
     document.title = translations[nextLanguage].title;
@@ -328,32 +258,55 @@ function setLanguage(language) {
         }
     });
 
-    languageButtons.forEach((button) => {
-        button.classList.toggle('is-active', button.dataset.lang === nextLanguage);
-        button.setAttribute('aria-pressed', String(button.dataset.lang === nextLanguage));
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((node) => {
+        const key = node.dataset.i18nPlaceholder;
+        const text = translations[nextLanguage].text[key];
+        if (text) {
+            node.setAttribute('placeholder', text);
+        }
     });
 
-    initPhotoDots();
-    const safeIndex = Math.min(currentPhotoIndex, photoItems.length - 1);
-    renderPhoto(Math.max(0, safeIndex));
+    languageButtons.forEach((button) => {
+        const isActive = button.dataset.lang === nextLanguage;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+    });
+
     initTypedEffect(nextLanguage);
     window.localStorage.setItem('preferredLanguage', nextLanguage);
 }
 
 function closeMenu() {
+    if (!navbar || !menuButton) {
+        return;
+    }
+
     navbar.classList.remove('active');
-    menuIcon.classList.remove('bx-x');
-    menuIcon.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-expanded', 'false');
+    if (menuIcon) {
+        menuIcon.classList.remove('bx-x');
+        menuIcon.classList.add('bx-menu');
+    }
 }
 
 function toggleMenu() {
+    if (!navbar || !menuButton) {
+        return;
+    }
+
     const isOpen = navbar.classList.toggle('active');
-    menuIcon.classList.toggle('bx-x');
-    menuIcon.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+
+    if (menuIcon) {
+        menuIcon.classList.toggle('bx-menu', !isOpen);
+        menuIcon.classList.toggle('bx-x', isOpen);
+    }
 }
 
 function updateHeaderState() {
-    header.classList.toggle('sticky', window.scrollY > 80);
+    if (header) {
+        header.classList.toggle('sticky', window.scrollY > 80);
+    }
 }
 
 function updateActiveLink() {
@@ -374,122 +327,86 @@ function updateActiveLink() {
     });
 }
 
-function renderPhoto(index) {
-    if (!mainPhoto || !mainCaption || !photoItems.length) {
+function initContactForm() {
+    const contactForm = document.querySelector('#contact-form');
+    const formFeedback = document.querySelector('#form-feedback');
+    if (!contactForm || !formFeedback) {
         return;
     }
 
-    if (index < 0 || index >= photoItems.length) {
-        return;
-    }
+    const submitButton = contactForm.querySelector('button[type="submit"]');
 
-    const photo = photoItems[index];
-    mainPhoto.classList.add('is-changing');
-
-    window.setTimeout(() => {
-        mainPhoto.src = photo.src;
-        mainPhoto.alt = photo.alt;
-        mainCaption.textContent = photo.caption;
-        mainPhoto.classList.remove('is-changing');
-    }, 140);
-
-    currentPhotoIndex = index;
-    photoDots.forEach((dot, dotIndex) => {
-        const isActive = dotIndex === currentPhotoIndex;
-        dot.classList.toggle('is-active', isActive);
-        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
-    });
-}
-
-function initPhotoDots() {
-    if (!photoDotsContainer || !photoItems.length) {
-        return;
-    }
-
-    const dotLabel = translations[currentLanguage].dotLabel;
-    const dotAction = translations[currentLanguage].dotAction;
-
-    const dotsMarkup = photoItems
-        .map((_, index) => `<button class="foto-dot${index === 0 ? ' is-active' : ''}" type="button" aria-label="${dotLabel} ${index + 1} ${dotAction}" aria-current="${index === 0 ? 'true' : 'false'}"></button>`)
-        .join('');
-
-    photoDotsContainer.innerHTML = dotsMarkup;
-    photoDots = Array.from(photoDotsContainer.querySelectorAll('.foto-dot'));
-
-    photoDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            renderPhoto(index);
-            stopAutoSlide();
-            startAutoSlide();
-        });
-    });
-}
-
-function showRelativePhoto(step) {
-    if (!photoItems.length) {
-        return;
-    }
-
-    const nextIndex = (currentPhotoIndex + step + photoItems.length) % photoItems.length;
-    renderPhoto(nextIndex);
-}
-
-function showRandomPhoto() {
-    if (!photoItems.length) {
-        return;
-    }
-
-    if (photoItems.length === 1) {
-        renderPhoto(0);
-        return;
-    }
-
-    let randomIndex = currentPhotoIndex;
-    while (randomIndex === currentPhotoIndex) {
-        randomIndex = Math.floor(Math.random() * photoItems.length);
-    }
-
-    renderPhoto(randomIndex);
-}
-
-function startAutoSlide() {
-    if (autoSlideTimer || !photoItems.length) {
-        return;
-    }
-
-    autoSlideTimer = window.setInterval(() => {
-        showRandomPhoto();
-    }, 4500);
-}
-
-function stopAutoSlide() {
-    if (!autoSlideTimer) {
-        return;
-    }
-
-    window.clearInterval(autoSlideTimer);
-    autoSlideTimer = null;
-}
-
-menuIcon.setAttribute('aria-expanded', 'false');
-
-menuIcon.addEventListener('click', toggleMenu);
-
-menuIcon.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        toggleMenu();
-    }
-});
+
+        const nameField = contactForm.querySelector('#form-name');
+        const emailField = contactForm.querySelector('#form-email');
+        const messageField = contactForm.querySelector('#form-message');
+
+        const name = nameField.value.trim();
+        const email = emailField.value.trim();
+        const message = messageField.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!name || !emailPattern.test(email) || !message) {
+            formFeedback.textContent = translations[currentLanguage].text['contact.form.error'];
+            formFeedback.style.color = '#f87171';
+            return;
+        }
+
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
+
+        try {
+            const response = await window.fetch('https://formsubmit.co/ajax/mohamad95issa@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message,
+                    _subject: 'Neue Nachricht von mudy.html',
+                    _template: 'table',
+                    _captcha: 'false'
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+
+            formFeedback.textContent = translations[currentLanguage].text['contact.form.success'];
+            formFeedback.style.color = 'var(--main-color)';
+            contactForm.reset();
+        } catch (error) {
+            formFeedback.textContent = translations[currentLanguage].text['contact.form.networkError'];
+            formFeedback.style.color = '#f87171';
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
+    });
+}
+
+if (menuButton) {
+    menuButton.addEventListener('click', toggleMenu);
+}
 
 navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-        closeMenu();
-    });
+    link.addEventListener('click', closeMenu);
 });
 
 document.addEventListener('click', (event) => {
-    if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
+    if (!navbar || !menuButton) {
+        return;
+    }
+
+    if (!navbar.contains(event.target) && !menuButton.contains(event.target)) {
         closeMenu();
     }
 });
@@ -497,18 +414,6 @@ document.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         closeMenu();
-    }
-
-    if (event.key === '<') {
-        showRelativePhoto(-1);
-        stopAutoSlide();
-        startAutoSlide();
-    }
-
-    if (event.key === '>') {
-        showRandomPhoto();
-        stopAutoSlide();
-        startAutoSlide();
     }
 });
 
@@ -526,65 +431,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveLink();
     setLanguage(initialLanguage);
     initTechBackground();
+    initContactForm();
 
     languageButtons.forEach((button) => {
         button.addEventListener('click', () => {
             setLanguage(button.dataset.lang || 'de');
         });
     });
-
-    if (prevPhotoButton) {
-        prevPhotoButton.addEventListener('click', () => {
-            showRelativePhoto(-1);
-            stopAutoSlide();
-            startAutoSlide();
-        });
-    }
-
-    if (nextPhotoButton) {
-        nextPhotoButton.addEventListener('click', () => {
-            showRandomPhoto();
-            stopAutoSlide();
-            startAutoSlide();
-        });
-    }
-
-    if (photoViewer) {
-        photoViewer.addEventListener('mouseenter', stopAutoSlide);
-        photoViewer.addEventListener('mouseleave', startAutoSlide);
-        photoViewer.addEventListener('focusin', stopAutoSlide);
-        photoViewer.addEventListener('focusout', startAutoSlide);
-
-        photoViewer.addEventListener('touchstart', (event) => {
-            const touch = event.changedTouches[0];
-            touchStartX = touch ? touch.clientX : null;
-            stopAutoSlide();
-        }, { passive: true });
-
-        photoViewer.addEventListener('touchend', (event) => {
-            const touch = event.changedTouches[0];
-            if (!touch || touchStartX === null) {
-                startAutoSlide();
-                return;
-            }
-
-            const deltaX = touch.clientX - touchStartX;
-
-            if (deltaX > 45) {
-                showRelativePhoto(-1);
-            } else if (deltaX < -45) {
-                showRandomPhoto();
-            }
-
-            touchStartX = null;
-            startAutoSlide();
-        }, { passive: true });
-    }
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduceMotion) {
-        startAutoSlide();
-    }
 
     if (window.ScrollReveal) {
         window.ScrollReveal({
@@ -595,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         window.ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-        window.ScrollReveal().reveal('.img, .foto-viewer, .contact', { origin: 'bottom' });
+        window.ScrollReveal().reveal('.img, .single-photo-card, .contact', { origin: 'bottom' });
         window.ScrollReveal().reveal('.about-img', { origin: 'left' });
         window.ScrollReveal().reveal('.about-content, .home-content p', { origin: 'right' });
     }
