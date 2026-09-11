@@ -262,16 +262,15 @@ nav.scrolled .mobile-menu-btn {
 
 /* Hero Section mit Banner-Bild */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 8rem 2rem 4rem;
-    position: relative;
-    overflow: hidden;
-    background-image: url('Herobild.jpg');
-    background-size: cover;
-    background-position: center right;
-    background-repeat: no-repeat;
+    min-height: 100svh;
+        padding-top: 100px;
+        padding-bottom: calc(7rem + env(safe-area-inset-bottom));
+        background-color: #0f172a;
+        background-image: url('img/Herobild.jpg');
+        background-size: contain;
+        background-position: center top;
+        background-repeat: no-repeat;
+    
 }
 
 .hero::before {
