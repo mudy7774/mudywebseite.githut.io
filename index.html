@@ -10,8 +10,8 @@
     <meta property="og:image" content="img/preview.jpg">
     <meta property="og:type" content="website">
     <title>Mohamad Issa | Media Informatics & UX/UI Designer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,7 +37,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Projects</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
@@ -63,8 +62,8 @@
                     die einen echten Unterschied für Unternehmen machen.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#testimonials" class="btn btn-primary">
-                        <i class="fas fa-quote-left"></i> Kundenstimmen
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-folder-open"></i> Projekte ansehen
                     </a>
                     <a href="#contact" class="btn btn-secondary">
                         <i class="fas fa-paper-plane"></i> Kontakt
@@ -94,10 +93,10 @@
             <div class="about-grid">
                 <div class="about-image reveal">
                     <div class="about-image-main">
-                        <img src="straße line.jpeg" alt="Mohamad Issa - Professionelles Porträt" loading="lazy">
+                        <img src="img/straße line.jpeg" alt="Mohamad Issa - Professionelles Porträt">
                     </div>
                     <div class="about-image-secondary">
-                        <img src="straße.jpeg" alt="Mohamad Issa - Casual Foto" loading="lazy">
+                        <img src="img/straße.jpeg" alt="Mohamad Issa - Casual Foto">
                     </div>
                 </div>
                 <div class="about-content reveal">
@@ -205,7 +204,7 @@
                 
                 <!-- Projekt 1: NLP / Learning Platform -->
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-preview" style="background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop') center/cover no-repeat;">
+                    <div class="portfolio-preview" style="background: url('img/projekt-1.jpg') center/cover no-repeat;">
                         <!-- Dunkles Overlay, damit das Icon sichtbar ist, falls das Bild mal nicht lädt -->
                         <div style="position:absolute; inset:0; background:rgba(15,23,42,0.4);"></div>
                         <span class="portfolio-number" style="color:white; z-index:2;">01</span>
@@ -225,7 +224,7 @@
 
                 <!-- Projekt 2: E-Commerce -->
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-preview" style="background: url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&h=500&fit=crop') center/cover no-repeat;">
+                    <div class="portfolio-preview" style="background: url('img/projekt-2.jpg') center/cover no-repeat;">
                         <div style="position:absolute; inset:0; background:rgba(15,23,42,0.4);"></div>
                         <span class="portfolio-number" style="color:white; z-index:2;">02</span>
                     </div>
@@ -244,7 +243,7 @@
 
                 <!-- Projekt 3: Corporate / B2B -->
                 <div class="portfolio-card reveal">
-                    <div class="portfolio-preview" style="background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop') center/cover no-repeat;">
+                    <div class="portfolio-preview" style="background: url('img/projekt-3.jpg') center/cover no-repeat;">
                         <div style="position:absolute; inset:0; background:rgba(15,23,42,0.4);"></div>
                         <span class="portfolio-number" style="color:white; z-index:2;">03</span>
                     </div>
@@ -261,51 +260,6 @@
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header reveal">
-             <div class="section-tag">Testimonials</div>
-                 <h2 class="section-title">Das sagen <span class="highlight">Kunden</span></h2>
-                 <p class="section-subtitle">Feedback von Menschen, mit denen ich gearbeitet habe</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <blockquote>"Mohamad delivered an exceptional website that exceeded our expectations. His attention to detail and design skills are outstanding!"</blockquote>
-                    <div class="testimonial-author">
-                        <div class="author-initials">AK</div>
-                        <div>
-                            <h3>Ahmed Khalil</h3>
-                            <p>Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <blockquote>"Professional, creative, and reliable. Mohamad transformed our online presence completely. Highly recommended for any web project!"</blockquote>
-                    <div class="testimonial-author">
-                        <div class="author-initials">SM</div>
-                        <div>
-                            <h3>Sarah Mueller</h3>
-                            <p>Marketing Director</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <blockquote>"The UX/UI design Mohamad created for our app was brilliant. User engagement increased by 200% after the redesign!"</blockquote>
-                    <div class="testimonial-author">
-                        <div class="author-initials">TW</div>
-                        <div>
-                            <h3>Thomas Weber</h3>
-                            <p>Startup Founder</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
