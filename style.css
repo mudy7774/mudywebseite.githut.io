@@ -268,7 +268,7 @@ nav.scrolled .mobile-menu-btn {
     padding: 8rem 2rem 4rem;
     position: relative;
     overflow: hidden;
-    background-image: url('Herobild.jpg');
+    background-image: url('img/Herobild.jpg');
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
@@ -997,77 +997,6 @@ section {
     transform: translateX(4px);
 }
 
-.testimonials {
-    background: var(--bg);
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.testimonial-card {
-    background: white;
-    padding: 2.5rem 2rem;
-    border-radius: 25px;
-    box-shadow: var(--shadow);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-xl);
-}
-
-.testimonial-rating {
-    color: var(--gold);
-    font-size: 1.25rem;
-    letter-spacing: 0.15rem;
-    margin-bottom: 1.5rem;
-}
-
-.testimonial-card blockquote {
-    color: var(--text-light);
-    line-height: 1.8;
-    font-style: italic;
-    flex: 1;
-    margin-bottom: 2rem;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border-top: 1px solid #e2e8f0;
-    padding-top: 1.5rem;
-}
-
-.author-initials {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--gradient-1);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-}
-
-.testimonial-author h3 {
-    color: var(--secondary);
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-}
-
-.testimonial-author p {
-    color: var(--text-light);
-    font-size: 0.85rem;
-}
-
 .skills {
     background: var(--bg-alt);
 }
@@ -1493,7 +1422,7 @@ footer .social-links a:hover {
         padding-top: 100px;
         padding-bottom: calc(7rem + env(safe-area-inset-bottom));
         background-color: #0f172a;
-        background-image: url('Herobild.jpg');
+        background-image: url('img/Herobild.jpg');
         background-size: contain;
         background-position: center top;
         background-repeat: no-repeat;
@@ -1574,7 +1503,6 @@ footer .social-links a:hover {
     }
 
     .about-features,
-    .testimonials-grid,
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
